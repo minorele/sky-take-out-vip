@@ -13,8 +13,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 public class SkyTakeOutVipApp {
     public static void main(String[] args) {
 
-        log.info("sky take out vip server started");
-
         SpringApplication.run(SkyTakeOutVipApp.class, args);
+        log.info("sky take out vip server started");
     }
 }

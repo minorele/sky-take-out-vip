@@ -13,50 +13,62 @@
 
     <dependencies>
 
+        <!--mysql驱动: JDBC-->
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <scope>runtime</scope>
         </dependency>
+
+        <!--mybatis-spring驱动：-->
         <dependency>
             <groupId>org.mybatis.spring.boot</groupId>
             <artifactId>mybatis-spring-boot-starter</artifactId>
         </dependency>
+
+        <!--lombok: 生成pojo代码-->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
         </dependency>
 
+        <!--fastjson: 数据结构对象的json转换并实现序列化与反序列化-->
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
         </dependency>
 
+        <!--druid: 数据库连接池 驱动spring starter-->
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>druid-spring-boot-starter</artifactId>
         </dependency>
 
+        <!--pagehelper: 分页助手 驱动spring starter-->
         <dependency>
             <groupId>com.github.pagehelper</groupId>
             <artifactId>pagehelper-spring-boot-starter</artifactId>
         </dependency>
 
+        <!--aspectjrt: 面向切面编程-->
         <dependency>
             <groupId>org.aspectj</groupId>
             <artifactId>aspectjrt</artifactId>
         </dependency>
 
+        <!--aspectjweaver: 面向切面编程织入器-->
         <dependency>
             <groupId>org.aspectj</groupId>
             <artifactId>aspectjweaver</artifactId>
         </dependency>
 
+        <!--knife4j: 基于 Swagger 的 API 文档生成工具-->
         <dependency>
             <groupId>com.github.xiaoymin</groupId>
             <artifactId>knife4j-spring-boot-starter</artifactId>
         </dependency>
 
+        <!--spring boot: 相关模块-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>
@@ -83,6 +95,7 @@
             <artifactId>spring-boot-starter-websocket</artifactId>
         </dependency>
 
+        <!--jaxb: Java 类与 XML 数据进行转换和绑定-->
         <dependency>
             <groupId>javax.xml.bind</groupId>
             <artifactId>jaxb-api</artifactId>
@@ -103,6 +116,7 @@
             <artifactId>sky-common</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
+
         <dependency>
             <groupId>org.cheems</groupId>
             <artifactId>sky-pojo</artifactId>
