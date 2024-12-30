@@ -87,6 +87,21 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
+    public void update(EmployeeDTO employeeDTO) {
+        Employee employee = new Employee();
+        BeanUtils.copyProperties(employeeDTO, employee);
+        String username = employee.getUsername();
+        Employee queryEmployee = employeeMapper.getByUsername(username);
+        if (queryEmployee != null){
+            throw new AccountExistedException(MessageConstant.ACCOUNT_EXISTED);
+        }
+        employee.setUpdateTime(LocalDateTime.now());
+        employee.setUpdateUser(BaseContext.getCurrentId());
+        employeeMapper.update(employee);
+    }
+
+
+    @Override
     public PageResult pageQuery(EmployeePageQueryDTO employeePageQueryDTO) {
 
         PageHelper.startPage(employeePageQueryDTO.getPage(), employeePageQueryDTO.getPageSize());
@@ -95,5 +110,16 @@ public class EmployeeServiceImpl implements EmployeeService {
         long total = employeePage.getTotal();
         List<Employee> records = employeePage.getResult();
         return new PageResult(total,records);
+    }
+
+    @Override
+    public void updateStatus(Integer status, Long id) {
+        employeeMapper.updateStatus(status, id);
+    }
+
+    @Override
+    public Employee employeeQuery(Long id) {
+
+        return employeeMapper.selectEmployeeById(id);
     }
 }

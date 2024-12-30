@@ -4,6 +4,7 @@ package org.cheems.controller;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.logging.log4j.util.PerformanceSensitive;
 import org.cheems.constant.JwtClaimsConstant;
 import org.cheems.dto.EmployeeDTO;
 import org.cheems.dto.EmployeeLoginDTO;
@@ -69,12 +70,37 @@ public class EmployeeController {
     }
 
     @GetMapping("/page")
-    @ApiOperation(value = "员工查询")
+    @ApiOperation(value = "员工分页查询")
     public Result<PageResult> page(EmployeePageQueryDTO employeePageQueryDTO){
         log.info("正在分页查询的信息：{}",employeePageQueryDTO);
         PageResult pageResult = employeeService.pageQuery(employeePageQueryDTO);
         return Result.success(pageResult);
     }
+
+    @PostMapping("/status/{status}")
+    @ApiOperation("员工账号状态修改")
+    public Result modifyStatus(@PathVariable Integer status, Long id){
+        log.info("正在修改员工{}账号状态为：{}",id, status);
+        employeeService.updateStatus(status, id);
+        return Result.success();
+    }
+
+    @PutMapping
+    @ApiOperation("员工账号的信息修改")
+    public Result modifyEmployeeInfo(@RequestBody EmployeeDTO employeeDTO){
+        log.info("正在修改员工账号信息：{}",employeeDTO);
+        employeeService.update(employeeDTO);
+        return Result.success();
+    }
+
+    @GetMapping("/{id}")
+    @ApiOperation(value = "根据员工id信息查询")
+    public Result<Employee> getById(@PathVariable Long id){
+        log.info("正在查询员工的信息，id为：{}",id);
+        Employee employee = employeeService.employeeQuery(id);
+        return Result.success(employee);
+    }
+
 
 
 }
