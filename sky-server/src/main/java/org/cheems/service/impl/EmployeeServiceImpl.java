@@ -3,6 +3,7 @@ package org.cheems.service.impl;
 
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
+import lombok.extern.slf4j.Slf4j;
 import org.cheems.constant.MessageConstant;
 import org.cheems.constant.PasswordConstant;
 import org.cheems.constant.StatusConstant;
@@ -30,6 +31,7 @@ import java.util.Objects;
 
 
 @Service
+@Slf4j
 public class EmployeeServiceImpl implements EmployeeService {
 
     @Autowired
