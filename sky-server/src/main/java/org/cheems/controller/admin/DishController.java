@@ -1,4 +1,4 @@
-package org.cheems.controller;
+package org.cheems.controller.admin;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -73,12 +73,13 @@ public class DishController {
      */
     @DeleteMapping
     @ApiOperation("菜品批量删除")
-    public Result delete(@RequestParam List<Long> ids) {
+    public Result delete(@RequestParam List<Long> ids) { //RequestParam 动态解析请求参数为list
         log.info("菜品批量删除：{}", ids);
         dishService.deleteBatch(ids);
 
-        //将所有的菜品缓存数据清理掉，所有以dish_开头的key
-        cleanCache("dish_*");
+
+//        //将所有的菜品缓存数据清理掉，所有以dish_开头的key
+//        cleanCache("dish_*");
 
         return Result.success();
     }
@@ -109,8 +110,8 @@ public class DishController {
         log.info("修改菜品：{}", dishDTO);
         dishService.updateWithFlavor(dishDTO);
 
-        //将所有的菜品缓存数据清理掉，所有以dish_开头的key
-        cleanCache("dish_*");
+//        //将所有的菜品缓存数据清理掉，所有以dish_开头的key
+//        cleanCache("dish_*");
 
         return Result.success();
     }

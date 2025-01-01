@@ -1,4 +1,4 @@
-package org.cheems.controller;
+package org.cheems.controller.admin;
 
 
 import io.swagger.annotations.Api;

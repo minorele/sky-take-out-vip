@@ -12,3 +12,6 @@ sky:
     access-key-id: LTAI5tGvERKP688FHw9FpckA
     access-key-secret: xosfLgGXYVHZQcA97trVxUb648pCDx
     bucket-name: sky-takeout-vip
+  redis:
+    host: localhost
+    port: 6379
