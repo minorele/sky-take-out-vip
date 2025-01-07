@@ -126,6 +126,7 @@ public class DishController {
     @PostMapping("/status/{status}")
     @ApiOperation("菜品起售停售")
     public Result<String> startOrStop(@PathVariable Integer status, Long id) {
+        log.info("修改菜品id为{}，的起售停售：{}",id, status);
         dishService.startOrStop(status, id);
 
         //将所有的菜品缓存数据清理掉，所有以dish_开头的key
@@ -143,6 +144,7 @@ public class DishController {
     @GetMapping("/list")
     @ApiOperation("根据分类id查询菜品")
     public Result<List<Dish>> list(Long categoryId) {
+        log.info("查询分类id{}下的菜品：",categoryId);
         List<Dish> list = dishService.list(categoryId);
         return Result.success(list);
     }
